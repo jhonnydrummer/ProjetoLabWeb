@@ -1,0 +1,64 @@
+.addContainer {
+    display: flex;
+    align-items: center;
+}
+
+.Mysidebar {
+    flex: 1; 
+}
+
+#Add-product-container {
+    flex: 2;     
+}
+
+.inputAdd{    
+    border: 1px solid rgb(101, 101, 101);
+    width: 60%;
+    height: 60vh;
+}
+
+.containerArquivo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    width: 30%;
+    height: 30%;
+    margin: 20px auto;
+}
+
+.inputAdd input{
+    display: block;
+    margin: 20px;
+    width: 80%;
+    height: 40px;
+    margin: 10px auto;
+    padding: 10px;
+}
+
+#imgAdd{
+    width: auto;
+    height: 20vh;
+}
+
+#botaoSalvar{
+    background-color: #ED0066;
+    color: white;
+    display: block;
+    margin: 20px;
+    width: 80%;
+    height: 40px;
+    margin: 10px auto;
+    border: none;
+    cursor: pointer;
+}
+
+#botaoSalvar:hover{
+    background-color: #ba0151;
+}
+
+#botaoSalvar:active{
+    background-color: #ba0151;
+    width: 78%;
+    height: 38px;
+}

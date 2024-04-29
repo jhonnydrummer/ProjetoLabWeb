@@ -1,0 +1,91 @@
+.product-container {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.product-table th,
+.product-table td {
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+.product-table th {
+  background-color: #c5c3c3;
+}
+
+.product-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.product-image {
+  width: 50px;
+  height: 50px;
+}
+
+
+#BotaoEditar, #BotaoDeletar{
+  margin: 5px;
+  width: 100px;
+  height: 35px;
+  float: right;
+  border: none;
+}
+
+#BotaoEditar{
+  background-color: #0F1642;
+  color: white;
+}
+
+#BotaoDeletar{
+  background-color: #ED0066;
+  color: white;
+}
+#BotaoDeletar:hover{
+  background-color: #b3024f;
+  cursor: pointer;
+}
+#BotaoDeletar:active{
+  background-color: #ED0066;
+}
+
+#ColunaPreco{
+  text-align: center;
+}
+
+
+
+.paginacao {
+  display: flex;
+  justify-content: center; 
+  position: fixed;
+  bottom: 9vw; 
+  left: 56%; 
+  transform: translateX(-50%); 
+}
+
+.botaoPaginacao {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: none;
+  border-radius: 100px;
+  background-color: #0F1642;
+  color: white;
+  cursor: pointer;
+  margin: 0 5px; 
+}
+
+.pagina-selecionada {
+  background-color: #ED0066;
+  color: white;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: none;
+  border-radius: 100px;
+}
+
+

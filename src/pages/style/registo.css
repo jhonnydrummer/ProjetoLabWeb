@@ -1,0 +1,97 @@
+
+
+.logomarca-registo {
+    width: 60%;
+    margin-bottom: 20px;
+    margin-top: 15px;
+  }
+  
+  .container-registo {
+    width: 100%; /* Alterado para largura de 80% */
+    max-width: 500px; /* Adicionado limite de largura */
+    height: auto; /* Alterado para altura automática */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    color: white;    
+    margin: 15% auto; /* Adicionado espaçamento superior e inferior */
+  }
+  
+  .content-registo {
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    box-shadow: 0 1px 2px #0003;
+    background-color: rgba(3, 24, 53, 0.41);
+    max-width: 450px;
+    padding: 20px 30px 20px 30px;
+    border-radius: 5px;
+  }
+  
+  .label-registo {
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+  }
+  
+ .labelRegisto{
+    font-size: 1rem;
+ }
+  
+  
+
+  .link-registo {
+    text-decoration: none;
+    color: #ED0066;
+}
+  
+  .input-text-registo {
+    width: 100%;
+    max-width: 400px;
+    height: 5vh;
+    color: rgb(38, 38, 38);
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.input:focus {
+    outline: none;
+  }
+
+  .registoButton {
+    width: 100%;
+    max-width: 400px;
+    height: 5vh;
+    background-color: #ED0066;
+    color: white;
+    font-size: large;
+    border: none;
+    cursor: pointer;
+}
+  
+.password-input-container {
+  position: relative;
+}
+
+.toggle-password-button {
+    cursor: pointer;
+    color: #ED0066;
+    position: relative;
+    margin-top: -38px;
+    margin-left: 90%;
+    font-size: 20px;
+    height: 100%;
+    background-color: transparent;
+    margin-right: 10px;
+    width: 40px;
+    text-align: center;
+    border: none;
+}
+
+.labelError-registo{
+  color: red;
+  font-style: italic;
+}

@@ -1,0 +1,82 @@
+.container {
+    display: flex;
+  }
+  
+  .sidebar {
+    display: flexbox;
+    width: 15vw;
+    height: 100vh;
+    background-image: url("/src/img/background.svg");
+    padding: 10px;
+    
+  }
+  
+  .main-content {
+    flex-grow: 1; 
+    padding: 20px;
+  }
+
+  #logo_side_bar{
+    width: 10vw;
+    margin-top: 20px;
+  }
+
+  ul li {
+    padding-top: 20px;
+    gap: 30px;
+  }
+
+  #perfil{
+    margin-top: 15px;
+    color: white;
+  }
+
+  a{
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    text-decoration: none;
+  }
+
+  a:hover{
+    color: #ED0066;
+  }
+
+  #linha{
+    border-bottom: 1px solid white;
+    padding-top: 30px;
+  }
+
+  #linhaBottom{
+    border-bottom: 1px solid white;
+    padding-top: 100px;
+  }
+
+  .icons{
+    width: 23px;
+    padding-right: 5px;
+
+  }
+
+  .iconsLogout{
+    width: 30px;
+    padding-right: 5px;
+    padding-top: 20px;
+  }
+
+  #buttonLogout{
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+
+ .opcaoSelecionada{
+  background-color: #ED0066;
+ }
+ .opcapSemselecao{
+  background-color: white;
+ }
+
+
+  
