@@ -1,0 +1,104 @@
+.user-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-height: 100vh;
+    width: 100%;
+  }
+
+  .content-container-users {
+    flex: 4; /* Ocupa o restante do espaço disponível */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .user-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .user-table th,
+  .user-table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+  }
+
+  .dadosUsers td{
+    height: 60px;
+  }
+  
+  .user-table th {
+    background-color: #0F1642;
+    color: white;
+    
+  }
+  
+  .user-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  
+  
+  #BotaoEditar, #BotaoDeletar{
+    margin: 5px;
+    width: 80px;
+    height: 35px;
+    float: right;
+    border: none;
+  }
+  
+  #BotaoEditar{
+    background-color: #0F1642;
+    color: white;
+  }
+  
+  #BotaoEditar:hover{
+    cursor: pointer;
+    background-color: #111c70;
+  }
+  
+  #BotaoDeletar{
+    background-color: #ED0066;
+    color: white;
+  }
+  #BotaoDeletar:hover{
+    background-color: #b3024f;
+    cursor: pointer;
+  }
+  #BotaoDeletar:active{
+    background-color: #ED0066;
+  }
+  
+  
+  
+  
+  .paginacao {
+    display: flex;
+    justify-content: center; 
+    position: fixed;
+    bottom: 4vw; 
+    left: 56%; 
+    transform: translateX(-50%); 
+  }
+  
+  .botaoPaginacao {
+    width: 1.5rem;
+    height: 1.5rem;
+    border: none;
+    border-radius: 100px;
+    background-color: #0F1642;
+    color: white;
+    cursor: pointer;
+    margin: 0 5px; 
+  }
+  
+  .pagina-selecionada {
+    background-color: #ED0066;
+    color: white;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: none;
+    border-radius: 100px;
+  }
+  
+  
+  

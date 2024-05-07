@@ -1,12 +1,16 @@
 import SideBar from '../componentes/sidebar'
 import './style/addProduto.css'
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 
 const AddProduto = () => {    
     const [nome, setName] = useState('');
     const [preco, setPreco] = useState('');
     const [produtoImagem, setImagem] = useState('');
+    const navigate = useNavigate();
+
 
 
     const handleAddImagem = (event) => {
@@ -49,6 +53,11 @@ const AddProduto = () => {
       }
     } 
 
+
+    const cancelarAdicao = () => {
+      navigate('/gerenciar-produtos');
+  };
+
 return (
     <div className="addContainer">
         <div className="Mysidebar">
@@ -56,6 +65,7 @@ return (
         </div>
         <div id="Add-product-container">
             <div className="inputAdd">
+            <button id="botaoX" onClick={cancelarAdicao}>X</button>
                 <div className="containerArquivo">
                     {produtoImagem && <img id='imgAdd' src={produtoImagem} alt="Imagem" />}
                 </div>
@@ -63,6 +73,7 @@ return (
                 <input type="text" placeholder="Nome" value={nome} onChange={(e) => setName(e.target.value)} /> 
                 <input type="number" placeholder="Preço" value={preco} onChange={(e) => setPreco(e.target.value)} />
                 <button id="botaoSalvar" onClick={handleSalvarProduto}>Salvar</button>
+                <button id="botaoCancelar" onClick={cancelarAdicao}>Cancelar</button>
             </div>
         </div>
     </div>

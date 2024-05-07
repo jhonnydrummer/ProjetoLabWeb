@@ -21,6 +21,8 @@ function removerToken (event){
         
 }
 
+
+
 class Sidebar extends React.Component {
     
   render() {
@@ -39,7 +41,7 @@ class Sidebar extends React.Component {
                 <Link to="/gerenciar-produtos"><img className='icons' src={gerenciarProdutosIcon}/>Gerenciar Produtos</Link>
             </li>
             <li>
-                <Link to="/utilizadores"><img className='icons' src={utilizadoresIcon}/>Utilizadores</Link>
+                <Link to="/listar-utilizadores"><img className='icons' src={utilizadoresIcon}/>Utilizadores</Link>
             </li>
             <li>
                 <Link to="/modo-de-venda"><img className='icons' src={mododeVendaIcon}/>Modo de Venda</Link>

@@ -15,7 +15,8 @@
 }
 
 .product-table th {
-  background-color: #c5c3c3;
+  background-color: #0F1642;
+  color: white;
 }
 
 .product-table tbody tr:nth-child(even) {
@@ -39,6 +40,11 @@
 #BotaoEditar{
   background-color: #0F1642;
   color: white;
+}
+
+#BotaoEditar:hover{
+  cursor: pointer;
+  background-color: #111c70;
 }
 
 #BotaoDeletar{

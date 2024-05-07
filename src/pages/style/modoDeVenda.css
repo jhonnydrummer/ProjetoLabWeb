@@ -1,0 +1,87 @@
+
+.products-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 100vh;
+  width: 100%;
+  overflow-y: auto;
+}
+
+.content-container {
+  flex: 4; /* Ocupa o restante do espaço disponível */
+  display: flex;
+  flex-direction: column;
+}
+
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.products-item {
+  border: 1px solid rgb(143, 143, 143);
+  background-color: white;
+  color: #0F1642;
+  margin: 5px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  min-width: 12vw;
+  width: calc(20.20% - 20px);
+}
+
+.product-images {
+  margin: 0 auto;
+  height: 15vh;
+}
+
+.products-details {
+  padding: 10px;
+}
+
+.products-names {
+  margin: 0;
+}
+
+.products-prices {
+  margin: 5px auto;
+  color: #ED0066;
+  font-size: x-large;
+}
+.products-details{
+  display: grid;
+  justify-content: center;
+}
+
+#BotaoComprar{
+  background-color: #ED0066;
+  color: white;
+  border: none;
+  height: 40px;
+}
+
+.MyPaginacao {
+  display: flex;
+  justify-content: center; 
+  position: fixed;
+  bottom: 2vw; 
+  left: 53%; 
+  transform: translateX(-50%); 
+}
+
+#MyBotaoPaginacao {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: none;
+  border-radius: 100px;
+  background-color: #0F1642;
+  color: white;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+#BarraBusca{
+  margin-left: -5vw;
+  padding: 5px;
+}

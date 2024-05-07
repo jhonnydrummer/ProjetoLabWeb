@@ -1,5 +1,5 @@
 const HandleDeleteProduto = async (productId) => {
-    let mensagemConfirmacao = window.confirm("Tem certeza que quer deletar o produto?")
+    let mensagemConfirmacao = window.confirm("Tem certeza que quer deletar o utilizador?")
     const token = localStorage.getItem('token');  
     
     const Myrequest = {
@@ -11,13 +11,13 @@ const HandleDeleteProduto = async (productId) => {
     };
   
     if(!mensagemConfirmacao){
-      return; // Retorna se o usuário cancelar a confirmação
+      return;
     }
   
     try {
       const response = await fetch(`https://lwlc-proj-2024.onrender.com/products/${productId}`, Myrequest);
       if (!response.ok) {
-        throw new Error('Erro ao deletar produto: ' + response.statusText);
+        throw new Error('Erro ao deletar produto:');
       }
       console.log('Produto deletado com sucesso.');
     } catch (error) {
