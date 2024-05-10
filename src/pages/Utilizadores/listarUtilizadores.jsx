@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import './listarUtilizadores.css';
 import SideBar from '../../componentes/sidebar'
+
 
 function ListarUtilizadores() {
   const [users, setUsers] = useState([]);
   const [error, setError] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [usersPorPagina] = useState(9); 
-  const navigate = useNavigate();
+  const [usersPorPagina] = useState(7); 
 
   
   useEffect(() => {
@@ -82,6 +82,7 @@ function ListarUtilizadores() {
             </tr>
           ))}
         </tbody>
+        
       </table>
 
       {/* Paginação */}
@@ -95,7 +96,13 @@ function ListarUtilizadores() {
           </div>
         ))}
       </div>
+      <div id='listraFooter'></div>
+          <footer className='rodape'>
+            <Link to="/registo"><button id="openModalBtn">Add Utilizador</button></Link>
+          </footer>
+
       </div>
+     
     </div>
   );
 }

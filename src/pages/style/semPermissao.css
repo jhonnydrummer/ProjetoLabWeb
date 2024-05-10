@@ -1,0 +1,16 @@
+    .TextoPermissao{
+        text-align: center;
+        margin-top: 25%;
+        
+    }
+
+    #imagemDeFundo{
+        background-image: url('../../img/proibido.jpg');
+        background-size:cover;
+        height: 90vh;
+        margin-left: -4.8vw;
+    }
+
+    #bodyContainer{
+        overflow: hidden;
+    }
