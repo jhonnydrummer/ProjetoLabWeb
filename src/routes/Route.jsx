@@ -4,7 +4,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import { AuthProvider, useAuth } from "./AuthContext"; // Importe useAuth do AuthContext
+import { useAuth } from "./AuthContext"; // Importe useAuth do AuthContext
 import Login from "../pages/login";
 import Registo from "../pages/registo";
 import GerenciarProdutos from "../pages/GerenciarProdutos/gerenciar-produtos";
@@ -17,8 +17,11 @@ import ListarUtilizadores from "../pages/Utilizadores/listarUtilizadores";
 import React from "react";
 import SemPermissao from "../pages/semPermissao";
 
+
 const RouterComponent = () => {
-  const { is_admin } = useAuth();
+  //const { isAdmin } = useAuth();
+
+  const {isAdmin} = useAuth()
 
   return (
           
@@ -26,7 +29,7 @@ const RouterComponent = () => {
           <Route
             path="/gerenciar-produtos"
             element={
-              is_admin ? (
+              isAdmin ? (
                 <GerenciarProdutos />
               ) : (
                 <Navigate to="/sem-permissao" />
@@ -36,31 +39,31 @@ const RouterComponent = () => {
           <Route
             path="/produtos"
             element={
-              is_admin ? <ExibirProdutos /> : <Navigate to="/sem-permissao" />
+              isAdmin ? <ExibirProdutos /> : <Navigate to="/sem-permissao" />
             }
           />
           <Route
             path="/addProduto"
             element={
-              is_admin ? <AddProduto /> : <Navigate to="/sem-permissao" />
+              isAdmin ? <AddProduto /> : <Navigate to="/sem-permissao" />
             }
           />
            <Route
             path="/registo"
             element={
-              is_admin ? <Registo /> : <Navigate to="/sem-permissao" />
+              isAdmin ? <Registo /> : <Navigate to="/sem-permissao" />
             }
           />
           <Route
             path="/editarProduto/:productId"
             element={
-              is_admin ? <EditProduto /> : <Navigate to="/sem-permissao" />
+              isAdmin ? <EditProduto /> : <Navigate to="/sem-permissao" />
             }
           />
           <Route
             path="/listar-utilizadores"
             element={
-              is_admin ? (
+              isAdmin ? (
                 <ListarUtilizadores />
               ) : (
                 <Navigate to="/sem-permissao" />

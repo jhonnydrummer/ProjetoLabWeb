@@ -79,10 +79,17 @@
   background-color: white;
  }
 
+ #perfil h4{
+  color: #ED0066;
+  font-weight: normal;
+  font-size:larger;
+  text-align: center;
+ }
+
  #perfil p{
   color: #ED0066;
   font-weight: normal;
-  font-size: small;
+  font-size:smaller;
   text-align: center;
  }
 

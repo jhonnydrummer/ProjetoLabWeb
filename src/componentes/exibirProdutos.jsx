@@ -64,7 +64,7 @@ function ExibirProdutos() {
             <tr key={product.product_id}>
               <td><img src={product.photo_link} alt={product.name} className="product-image" /></td>
               <td>{product.name}</td>
-              <td id='ColunaPreco'>${product.price}</td>
+              <td id='ColunaPreco'>€{product.price}</td>
               <td className='areaDeAcao'>
                 <button id='BotaoDeletar' onClick={() => DeleteProduto(product.product_id)}>Deletar</button>  
                 <button id='BotaoEditar' onClick={() => redirecionaPaginaEdicao(product.product_id)}>Editar</button> 

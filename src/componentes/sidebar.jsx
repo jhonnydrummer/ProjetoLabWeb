@@ -19,7 +19,7 @@ const Sidebar = ({ loggedInUsername }) => {
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
-      setLoggedInUser(JSON.parse(storedUser));
+      setLoggedInUser(storedUser);
     }
   }, []);
 
@@ -30,10 +30,13 @@ const Sidebar = ({ loggedInUsername }) => {
       event.preventDefault();
     } else {
       localStorage.removeItem("token");
+      localStorage.removeItem("user");
+      localStorage.removeItem("isAdmin");
       logout();
     }
   }
-
+  const usernameLogged = localStorage.getItem('user')
+  const isAdminBoolean = !!localStorage.getItem('isAdmin');
   return (
     <>
       <div className="sidebar">
@@ -42,10 +45,13 @@ const Sidebar = ({ loggedInUsername }) => {
         </div>
         <div id="linha"></div>
 
-        <div id="perfil">{user && <p>Logado como {user.username}</p>}</div>
+        <div id="perfil">
+            <p>{isAdminBoolean  ? 'Admin' : 'User'}</p>
+            <h4>{usernameLogged}</h4>
+        </div>
 
         <ul className="components">
-         {user && user.isAdmin && (
+         {loggedInUser && (
         <>
           <li>
             <Link to="/gerenciar-produtos">
@@ -66,7 +72,7 @@ const Sidebar = ({ loggedInUsername }) => {
               Modo de Venda
             </Link>
           </li>
-          {user && user.isAdmin && (
+          {loggedInUser && (
         <>
           <li>
         
