@@ -24,6 +24,8 @@ export const AuthProvider = ({ children }) => {
       if (response.ok) {
         const token = await response.json();
         localStorage.setItem("token", token);
+        localStorage.setItem("user", username);
+        localStorage.setItem("isAdmin", isAdmin)
         await recuperarUsuario(username, password); // Espera pela recuperação do usuário antes de retornar
         
         return true; 
@@ -80,7 +82,7 @@ export const AuthProvider = ({ children }) => {
     // Recupera o usuário do localStorage ao iniciar o componente
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
-      setUser(JSON.parse(storedUser));
+      setUser(storedUser);
       setIsAdmin(localStorage.getItem('isAdmin') === 'true');
     }
   }, []);

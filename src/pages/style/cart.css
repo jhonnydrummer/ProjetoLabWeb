@@ -1,0 +1,114 @@
+.container-geral {
+  display: flex;
+  align-items: start; /* Estende os itens para ocupar toda a altura */
+}
+
+.containerCart {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  width: 100%; /* Ocupa todo o espaço disponível */
+  max-width: 1200px; /* Define uma largura máxima para o conteúdo */
+  margin: 0 auto; /* Centraliza o conteúdo na página */
+}
+
+.cart-items {
+  width: 100%;
+  overflow-x: auto; /* Adiciona uma barra de rolagem horizontal se necessário */
+}
+
+.cart-items table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.cart-items th{
+    background-color: #0F1642;
+    color: white;
+}
+.cart-items tbody tr:nth-child(even) {
+    background-color: #5e627f;
+  }
+  
+  /* Estiliza linhas ímpares da tabela */
+  .cart-items tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+  }
+
+.cart-items th,
+.cart-items td {
+  padding: 8px;
+  text-align: left;
+}
+
+.inputQuantity {
+  width: 50px;
+}
+
+/* Estilos para a imagem dentro da tabela */
+.cart-items img {
+  width: 50px; /* Defina a largura desejada para as imagens */
+  height: auto; /* Mantém a proporção da imagem */
+}
+
+/* Estilos para o botão de remover */
+.remove-button {
+  background-color: #ED0066;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.remove-button:hover {
+  background-color: #c60357;
+}
+
+
+.inputQuantity::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+.inputQuantity {
+    -moz-appearance: textfield;
+    width: 50;
+    height: 40px;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .quantity-button{
+    width: 20px;
+    height: 20px;
+    border: none;
+    border-radius: 100px;
+    background-color: #c60357;
+    color: white;
+    margin: 5px;
+    cursor: pointer; 
+  }
+
+  .btnFinalizarCompra{
+    position: fixed;
+    bottom: 50px; /* Define a distância do botão em relação ao fundo da página */
+    left: 80%; /* Centraliza o botão horizontalmente */
+    transform: translateX(-10%);
+    height: 4rem;
+    width: 10rem;
+    background-color: #c60357;
+    border: none;
+    color: white;
+    border-radius: 10px;
+  }
+  .valorTotal{
+    position: fixed;
+    bottom: 25vh; /* Define a distância do botão em relação ao fundo da página */
+    left: 80%; /* Centraliza o botão horizontalmente */
+    transform: translateX(-10%);
+  }

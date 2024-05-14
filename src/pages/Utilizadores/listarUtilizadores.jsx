@@ -74,9 +74,9 @@ function ListarUtilizadores() {
               <td>{user.user_id}</td>
               <td>{user.username}</td>
               <td>{user.full_name}</td>
-              <td>{user.email}</td>
-              <td>{user.phone_number}</td>
+              <td>{user.phone_number}</td>                          
               <td>{user.address}</td>
+              <td>{user.email}</td>  
               <td>{user.password}</td>
               <td>{user.is_admin}</td>
             </tr>

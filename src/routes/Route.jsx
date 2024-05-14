@@ -16,6 +16,7 @@ import ModoDeVenda from "../pages/modoDeVenda";
 import ListarUtilizadores from "../pages/Utilizadores/listarUtilizadores";
 import React from "react";
 import SemPermissao from "../pages/semPermissao";
+import Cart from "../pages/Venda/cart";
 
 
 const RouterComponent = () => {
@@ -72,6 +73,7 @@ const RouterComponent = () => {
           />
           <Route path="/sem-permissao" element={<SemPermissao />} />
           <Route path="/modo-de-venda" element={<ModoDeVenda />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="/" element={<Login />} />
         </Routes>
       

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import "./sidebar.css";
 import Logomarca from "../img/logo_escuro.png";
@@ -10,10 +10,20 @@ import suporteIcon from "../img/icons/suporte.svg";
 import utilizadoresIcon from "../img/icons/utilizadores.svg";
 import logoutIcon from "../img/icons/logout.svg";
 import { useAuth } from "../routes/AuthContext";
+import IconCart from './CarrinhoIcon'
+
+
 
 const Sidebar = ({ loggedInUsername }) => {
-  const { logout, user } = useAuth();
+  const { logout, user, isAdmin } = useAuth();
   const [loggedInUser, setLoggedInUser] = useState(null);
+
+  const navigate = useNavigate();
+
+  const handleClicarCarrinho = () => {
+    // Redireciona para a página do carrinho
+    navigate('/cart');
+  };
   
 
   useEffect(() => {
@@ -45,13 +55,17 @@ const Sidebar = ({ loggedInUsername }) => {
         </div>
         <div id="linha"></div>
 
+      
+
         <div id="perfil">
-            <p>{isAdminBoolean  ? 'Admin' : 'User'}</p>
+            <p>{isAdmin  ? 'Admin' : 'User'}</p>
             <h4>{usernameLogged}</h4>
         </div>
 
+        
+
         <ul className="components">
-         {loggedInUser && (
+         {isAdmin && (
         <>
           <li>
             <Link to="/gerenciar-produtos">
@@ -72,7 +86,7 @@ const Sidebar = ({ loggedInUsername }) => {
               Modo de Venda
             </Link>
           </li>
-          {loggedInUser && (
+          {isAdmin && (
         <>
           <li>
         
@@ -96,13 +110,18 @@ const Sidebar = ({ loggedInUsername }) => {
               Suporte
             </Link>
           </li>
+        <div className="containerCart">
+          <button className="iconCart" onClick={handleClicarCarrinho}><IconCart/><p>Cart</p></button>
+        </div>
           <div id="linhaBottom"></div>
         </ul>
         <Link to="/" onClick={handleLogout}>
           <img className="iconsLogout" src={logoutIcon} />
           Logout
         </Link>
+        
       </div>
+      
     </>
   );
 };

@@ -50,19 +50,18 @@
 
   #linhaBottom{
     border-bottom: 1px solid white;
-    padding-top: 100px;
+    padding-top: 50px;
   }
 
   .icons{
     width: 23px;
     padding-right: 5px;
-
   }
 
   .iconsLogout{
     width: 30px;
     padding-right: 5px;
-    padding-top: 20px;
+    padding-top: 15px;
   }
 
   #buttonLogout{
@@ -71,13 +70,6 @@
     color: white;
     cursor: pointer;
   }
-
- .opcaoSelecionada{
-  background-color: #ED0066;
- }
- .opcapSemselecao{
-  background-color: white;
- }
 
  #perfil h4{
   color: #ED0066;
@@ -92,5 +84,25 @@
   font-size:smaller;
   text-align: center;
  }
+
+ .iconCart{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-top: 25px;
+  align-items: center;
+ }
+ 
+ .containerCart{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+
+ .containerCart p{
+  color: white;
+ }
+
+ 
 
   
