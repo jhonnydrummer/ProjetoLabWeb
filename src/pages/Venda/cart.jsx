@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import SideBar from "../../componentes/sidebar";
 import "../../pages/style/cart.css";
+import Checkout from './checkout'
 
 function Cart() {
   const [cartItems, setCartItems] = useState([]);
 
   // Função para remover um produto do carrinho
   const removeFromCart = (productId) => {
-    const itemIndex = cartItems.findIndex((item) => item.id === productId);
+    const itemIndex = cartItems.findIndex((item) => item.product_id === productId);
     if (itemIndex !== -1) {
       const updatedCart = [...cartItems];
       updatedCart.splice(itemIndex, 1);
@@ -41,6 +42,7 @@ function Cart() {
       <div className="containerCart">
         <h2 id="titulo-cart">Carrinho de Compras</h2>
         <div className="cart-items">
+        <div className="Container-produtos-cart">
           <table>
             <thead>
               <tr>
@@ -64,7 +66,6 @@ function Cart() {
                       className="quantity-button"
                       onClick={() => {
                         if (item.quantity > 1) {
-                          // Verifica se a quantidade é maior que 1
                           const updatedCart = [...cartItems];
                           updatedCart[index] = {
                             ...updatedCart[index],
@@ -123,7 +124,7 @@ function Cart() {
                   <td>
                     <button
                       className="remove-button"
-                      onClick={() => removeFromCart(item.id)}
+                      onClick={() => removeFromCart(item.product_id)}
                     >
                       Remover
                     </button>
@@ -132,6 +133,7 @@ function Cart() {
               ))}
             </tbody>
           </table>
+          </div>
           <h3 className="valorTotal">
             Valor total:{" "}
             <h2>
@@ -142,7 +144,7 @@ function Cart() {
             </h2>
           </h3>
         </div>
-        <button className="btnFinalizarCompra">Finalizar Compra</button>
+        <button className="btnCheckOut" onClick={Checkout}>Checkout</button>
       </div>
     </div>
   );

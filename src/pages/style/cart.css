@@ -29,7 +29,7 @@
     color: white;
 }
 .cart-items tbody tr:nth-child(even) {
-    background-color: #5e627f;
+    background-color: #b7b7b7;
   }
   
   /* Estiliza linhas ímpares da tabela */
@@ -94,7 +94,7 @@
     cursor: pointer; 
   }
 
-  .btnFinalizarCompra{
+  .btnCheckOut{
     position: fixed;
     bottom: 50px; /* Define a distância do botão em relação ao fundo da página */
     left: 80%; /* Centraliza o botão horizontalmente */
@@ -105,10 +105,19 @@
     border: none;
     color: white;
     border-radius: 10px;
+    font-size: large;
   }
   .valorTotal{
     position: fixed;
-    bottom: 25vh; /* Define a distância do botão em relação ao fundo da página */
-    left: 80%; /* Centraliza o botão horizontalmente */
+    bottom: 20vh; /* Define a distância do botão em relação ao fundo da página */
+    left: 81%; /* Centraliza o botão horizontalmente */
     transform: translateX(-10%);
   }
+
+  .Container-produtos-cart{
+    height: 60vh;
+    border: solid 1px rgb(179, 176, 176);
+    overflow-y:auto;
+  }
+
+  

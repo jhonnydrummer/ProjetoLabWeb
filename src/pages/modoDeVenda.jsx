@@ -38,13 +38,22 @@ function ModoDeVenda() {
     fetchProducts();
   }, []);
 
+  
   // Função para adicionar produto ao carrinho
   const addToCart = (product) => {
-    const updatedProduct = { ...product, quantity: 1 }; 
-    const updatedCart = [...cart, updatedProduct];
+    const storedCartItems = JSON.parse(localStorage.getItem('cartItems'));
   
-    setCart(updatedCart);    
-    localStorage.setItem('cartItems', JSON.stringify(updatedCart));
+    const existingProductIndex = storedCartItems.findIndex(item => item.product_id === product.product_id);
+  
+    if (existingProductIndex !== -1) {
+      return;
+    } else {
+      const updatedProduct = { ...product, quantity: 1 };
+      const updatedCart = [...storedCartItems, updatedProduct];
+    
+      setCart(updatedCart);
+      localStorage.setItem('cartItems', JSON.stringify(updatedCart));
+    }
   };
   
   
