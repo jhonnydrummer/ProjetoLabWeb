@@ -1,0 +1,35 @@
+.checkout-container {
+    width: 50vw;
+    height: 80vh;
+    margin: 5% auto;
+    padding: 20px;
+    background-color: #ccc;
+    border-radius: 5px;
+    text-align: center;
+    display: block;
+  }
+  
+  
+  
+  .btnIrParaHome {
+    background-color:#ED0066;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 170px;
+    height: 40px;
+    margin: 100px;
+  }
+  
+  .btnIrParaHome:hover {
+    background-color: #c20456;
+  }
+
+  .container-text-button{
+    margin-top: 30%;
+  }
+
+ 
+

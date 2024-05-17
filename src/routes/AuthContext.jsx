@@ -4,7 +4,7 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [isAdmin, setIsAdmin] = useState(false); // Adiciona o estado isAdmin
+  const [isAdmin, setIsAdmin] = useState(false);
 
   const login = async (username, password) => {
     const userData = {
@@ -25,8 +25,8 @@ export const AuthProvider = ({ children }) => {
         const token = await response.json();
         localStorage.setItem("token", token);
         localStorage.setItem("user", username);
-        localStorage.setItem("isAdmin", isAdmin)
-        await recuperarUsuario(username, password); // Espera pela recuperação do usuário antes de retornar
+        localStorage.setItem("isAdmin", isAdmin);
+        await recuperarUsuario(username, password); 
         
         return true; 
       } else {

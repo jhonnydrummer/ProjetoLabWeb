@@ -106,7 +106,15 @@
     color: white;
     border-radius: 10px;
     font-size: large;
+    cursor: pointer;
   }
+
+
+
+  .btnCheckOut:hover{
+    background-color: #a70149;
+  }
+
   .valorTotal{
     position: fixed;
     bottom: 20vh; /* Define a distância do botão em relação ao fundo da página */

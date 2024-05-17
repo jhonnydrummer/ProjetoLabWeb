@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import SideBar from "../../componentes/sidebar";
 import "../../pages/style/cart.css";
 import Checkout from './checkout'
 
+
+
+
 function Cart() {
   const [cartItems, setCartItems] = useState([]);
+  const navigate = useNavigate();
 
   // Função para remover um produto do carrinho
   const removeFromCart = (productId) => {
@@ -34,6 +39,23 @@ function Cart() {
     });
 
     return total;
+  }
+
+  const handleCheckout = () => {
+
+    let itemIndex = cartItems.findIndex((item) => item.product_id);
+    if(!itemIndex){
+      navigate("/checkout");
+    }
+    function msgError(message) {
+      const errorMessageElement = document.getElementById('error-message');
+      errorMessageElement.textContent = message;
+      errorMessageElement.style.color = 'red';
+    }    
+    // Exemplo de uso
+    msgError('Carrinho vazio. Impossível prosseguir.');
+
+    return;
   }
 
   return (
@@ -143,8 +165,9 @@ function Cart() {
               })}
             </h2>
           </h3>
+          <div id="error-message"></div>
         </div>
-        <button className="btnCheckOut" onClick={Checkout}>Checkout</button>
+        <button className="btnCheckOut" onClick={handleCheckout}>Checkout</button>
       </div>
     </div>
   );

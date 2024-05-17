@@ -1,5 +1,5 @@
 const HandleDeleteProduto = async (productId) => {
-    let mensagemConfirmacao = window.confirm("Tem certeza que quer deletar o utilizador?")
+    let mensagemConfirmacao = window.confirm("Tem certeza que quer deletar o Produto?")
     const token = localStorage.getItem('token');  
     
     const Myrequest = {

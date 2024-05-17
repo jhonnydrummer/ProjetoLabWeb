@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../routes/AuthContext"; // Importa a função login
+import { useAuth } from "../routes/AuthContext";
 import logo from "../img/logo_escuro.png";
 import '../pages/style/login.css'
 import { RiEyeFill, RiEyeCloseFill } from 'react-icons/ri'; 
@@ -12,7 +12,7 @@ const Login = () => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [loggedInUsername, setLoggedInUsername] = useState("");
-  const { login } = useAuth(); // Usa o hook useAuth
+  const { login } = useAuth(); 
 
 
   const handleLogin = async () => {
@@ -21,7 +21,7 @@ const Login = () => {
       return;
     }
 
-    const success = await login(username, password); // Chama a função de login
+    const success = await login(username, password); 
 
     if (success) {
       navigate('/modo-de-venda');

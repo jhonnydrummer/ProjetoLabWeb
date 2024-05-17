@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './style/modoDeVenda.css';
 import SideBar from '../componentes/sidebar';
 import BarraBusca from '../componentes/BarraBusca';
-import Cart from './Venda/cart'; 
+import Cart from './Order/cart'; 
 
 function ModoDeVenda() {
   const [products, setProducts] = useState([]);
@@ -38,39 +38,52 @@ function ModoDeVenda() {
     fetchProducts();
   }, []);
 
-  
+  useEffect(() => {
+    // Atualizar o número de produtos no carrinho quando o carrinho mudar
+    const storedCartItems = JSON.parse(localStorage.getItem('cartItems'));
+    if (storedCartItems) {
+      setCart(storedCartItems);
+    }
+  }, []);
+
   // Função para adicionar produto ao carrinho
   const addToCart = (product) => {
-    const storedCartItems = JSON.parse(localStorage.getItem('cartItems'));
-  
+    let storedCartItems = JSON.parse(localStorage.getItem('cartItems'));
+
+    // Verificar se storedCartItems é null e inicializá-lo como uma matriz vazia se for
+    if (!storedCartItems) {
+      storedCartItems = [];
+    }
+
     const existingProductIndex = storedCartItems.findIndex(item => item.product_id === product.product_id);
-  
+
     if (existingProductIndex !== -1) {
       return;
     } else {
       const updatedProduct = { ...product, quantity: 1 };
       const updatedCart = [...storedCartItems, updatedProduct];
-    
+
       setCart(updatedCart);
       localStorage.setItem('cartItems', JSON.stringify(updatedCart));
     }
   };
-  
-  
-  
 
-  // Lógica para cálculo dos produtos a serem exibidos na página atual
+  ///// Contar o número de produtos no carrinho
+  const cartItemCount = cart.length;
+
+  ///// Lógica para cálculo dos produtos a serem exibidos na página atual
   const indexOfLastProduct = currentPage * produtosPorPagina;
   const indexOfFirstProduct = indexOfLastProduct - produtosPorPagina;
   const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
 
-  // Função para mudar de página
+
+  ////// Função para mudar de página
   const paginate = pageNumber => setCurrentPage(pageNumber);
 
   return (
     <div className="products-container">
       <div className="Mysidebar">
-        <SideBar />
+        <SideBar cartItemCount={cartItemCount} />
       </div>
       <div className="content-container">
         <div id='BarraBusca'>
