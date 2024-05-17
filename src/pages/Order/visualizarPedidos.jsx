@@ -36,7 +36,6 @@ function VisualizarPedidos() {
         setError("Erro ao buscar pedidos.");
       }
     }
-
     fetchOrders();
   }, []);
 
@@ -83,7 +82,6 @@ function VisualizarPedidos() {
     }
   };
 
-
   // Lógica para cálculo dos pedidos a serem exibidos na página atual
   const indexOfLastOrder = currentPage * ordersPorPagina;
   const indexOfFirstOrder = indexOfLastOrder - ordersPorPagina;
@@ -113,14 +111,13 @@ function VisualizarPedidos() {
             </thead>
             <tbody>
               {currentOrders.map((order) => (
-                <tr key={order.id}>
+                <tr key={order.order_id}>
                   <td>{order.order_id}</td>
                   <td>{order.description}</td>
                   <td>{new Date(order.date_time).toLocaleDateString()}</td>
                   <td>€{order.total_price}</td>
                   <td>{order.payment_method}</td>
                   <td>
-                    
                     <select
                       value={order.status}
                       onChange={(e) =>
