@@ -5,6 +5,7 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const login = async (username, password) => {
     const userData = {
@@ -25,7 +26,6 @@ export const AuthProvider = ({ children }) => {
         const token = await response.json();
         localStorage.setItem("token", token);
         localStorage.setItem("user", username);
-        localStorage.setItem("isAdmin", isAdmin);
         await recuperarUsuario(username, password); 
         
         return true; 
@@ -37,28 +37,29 @@ export const AuthProvider = ({ children }) => {
       return false; 
     }
   };
+  
 
   const recuperarUsuario = async (username, password) => {
     try {
       const token = localStorage.getItem('token');
-
+  
       if (token) {
         const response = await fetch('https://lwlc-proj-2024.onrender.com/users', {
           headers: {
             'Authorization': token,
           }
         });
-
+  
         if (response.ok) {
           const users = await response.json();
           const authenticatedUser = users.find(user => user.username === username && user.password === password);
-
+  
           if (authenticatedUser) {
             setUser(authenticatedUser);
-            setIsAdmin(authenticatedUser.is_admin); 
 
-            localStorage.setItem('user', authenticatedUser.username); // Armazena o usuário como JSON no localStorage
-            localStorage.setItem('isAdmin', authenticatedUser.is_admin);
+          // Configurar isAdmin no localStorage independentemente do status do usuário
+          localStorage.setItem('user', authenticatedUser.username); 
+          localStorage.setItem('isAdmin', authenticatedUser.is_admin);
           }
         } else {
           console.log('Erro ao recuperar dados do usuário:', response.statusText);
@@ -69,7 +70,8 @@ export const AuthProvider = ({ children }) => {
     } catch (error) {
       console.error('Erro ao buscar utilizador:', error);
     }
-  }
+  };
+  
 
   const logout = () => {
     setUser(null);
@@ -79,16 +81,18 @@ export const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    // Recupera o usuário do localStorage ao iniciar o componente
     const storedUser = localStorage.getItem("user");
+    const storedIsAdmin = localStorage.getItem("isAdmin");
+
     if (storedUser) {
       setUser(storedUser);
-      setIsAdmin(localStorage.getItem('isAdmin') === 'true');
+      setIsAdmin(storedIsAdmin === 'true');
     }
+    setLoading(false);
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, isAdmin, login, logout }}>
+    <AuthContext.Provider value={{ user, isAdmin, login, logout, loading }}>
       {children}
     </AuthContext.Provider>
   );

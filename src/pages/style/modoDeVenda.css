@@ -16,19 +16,18 @@
 .product-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
 }
 
 .products-item {
   border: 1px solid rgb(143, 143, 143);
   background-color: white;
   color: #0F1642;
-  margin: 5px;
+  margin: 2px;
   padding: 5px;
   display: flex;
   flex-direction: column;
   min-width: 12vw;
-  width: calc(20.20% - 20px);
+  width: calc(20.20% - 20px);  
 }
 
 .product-images {
@@ -37,13 +36,14 @@
   max-width: calc(100.20% - 10px);
 }
 
-.products-details {
-  padding: 10px;
-}
 
 .products-names {
-  margin: 0;
+  font-size: small;
+  white-space: normal; 
+  word-wrap: break-word; 
+  overflow-wrap: break-word;
 }
+
 
 .products-prices {
   margin: 5px auto;
@@ -67,7 +67,7 @@
   display: flex;
   justify-content: center; 
   position: fixed;
-  bottom: 2vw; 
+  bottom: 1vw; 
   left: 53%; 
   transform: translateX(-50%); 
 }
@@ -84,6 +84,14 @@
 }
 
 #BarraBusca{
-  margin-left: -5vw;
+  margin-left: -3.5vw;
   padding: 5px;
 }
+
+.nome-produto {
+  height: 10vh; 
+  overflow-y: auto; 
+  width: 100%; 
+}
+
+

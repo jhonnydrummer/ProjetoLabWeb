@@ -10,9 +10,7 @@ import suporteIcon from "../img/icons/suporte.svg";
 import utilizadoresIcon from "../img/icons/utilizadores.svg";
 import logoutIcon from "../img/icons/logout.svg";
 import { useAuth } from "../routes/AuthContext";
-import IconCart from './CarrinhoIcon'
-
-
+import IconCart from "./CarrinhoIcon";
 
 const Sidebar = ({ loggedInUsername }) => {
   const { logout, user, isAdmin } = useAuth();
@@ -21,10 +19,8 @@ const Sidebar = ({ loggedInUsername }) => {
   const navigate = useNavigate();
 
   const handleClicarCarrinho = () => {
-    // Redireciona para a página do carrinho
-    navigate('/cart');
+    navigate("/cart");
   };
-  
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
@@ -45,8 +41,11 @@ const Sidebar = ({ loggedInUsername }) => {
       logout();
     }
   }
-  const usernameLogged = localStorage.getItem('user')
-  const isAdminBoolean = !!localStorage.getItem('isAdmin');
+
+  
+
+  const usernameLogged = localStorage.getItem("user");
+  const isAdminBoolean = !!localStorage.getItem("isAdmin");
   return (
     <>
       <div className="sidebar">
@@ -55,54 +54,47 @@ const Sidebar = ({ loggedInUsername }) => {
         </div>
         <div id="linha"></div>
 
-      
-
         <div id="perfil">
-            <p>{isAdmin  ? 'Admin' : 'User'}</p>
-            <h4>{usernameLogged}</h4>
+          <p>{isAdmin ? "Admin" : "User"}</p>
+          <h4>{usernameLogged}</h4>
         </div>
 
-        
-
         <ul className="components">
-         {isAdmin && (
-        <>
-          <li>
-            <Link to="/gerenciar-produtos">
-              <img className="icons" src={gerenciarProdutosIcon} />
-              Gerenciar Produtos
-            </Link>
-          </li>
-          <li>
-            <Link to="/listar-utilizadores">
-              <img className="icons" src={utilizadoresIcon} />
-              Listar Utilizadores
-            </Link>
-          </li>
-          </>)}
-          <li>
-            <Link to="/modo-de-venda">
-              <img className="icons" src={mododeVendaIcon} />
-              Modo de Venda
-            </Link>
-          </li>
+        <li>
+                <Link to="/modo-de-venda">
+                  <img className="icons" src={mododeVendaIcon} />
+                  Home
+                </Link>
+              </li>
           {isAdmin && (
-        <>
-          <li>
-        
+            <>
+              
+              <li>
+                <Link to="/gerenciar-produtos">
+                  <img className="icons" src={gerenciarProdutosIcon} />
+                  Gerenciar Produtos
+                </Link>
+              </li>
+              <li>
+                <Link to="/listar-utilizadores">
+                  <img className="icons" src={utilizadoresIcon} />
+                  Listar Utilizadores
+                </Link>
+              </li>
+            </>
+          )}
+
+          {isAdmin && (
+            <>
+              <li>
+                <Link to="/pedidos">
+                  <img className="icons" src={pedidosIcon} />
+                  Pedidos
+                </Link>
+              </li>
+            </>
+          )}
           
-            <Link to="/pedidos">
-              <img className="icons" src={pedidosIcon} />
-              Pedidos
-            </Link>
-          </li>
-          <li>
-            <Link to="/mensagens">
-              <img className="icons" src={mensagensIcon} />
-              Mensagens
-            </Link>
-          </li>
-        </> )} 
 
           <li>
             <Link to="/suporte">
@@ -110,18 +102,19 @@ const Sidebar = ({ loggedInUsername }) => {
               Suporte
             </Link>
           </li>
-        <div className="containerCart">
-          <button className="iconCart" onClick={handleClicarCarrinho}><IconCart/><p>Cart</p></button>
-        </div>
+          <div className="containerCart">
+            <button className="iconCart" onClick={handleClicarCarrinho}>
+              <IconCart />              
+              <p>Cart</p>
+            </button>
+          </div>
           <div id="linhaBottom"></div>
         </ul>
         <Link to="/" onClick={handleLogout}>
           <img className="iconsLogout" src={logoutIcon} />
           Logout
         </Link>
-        
       </div>
-      
     </>
   );
 };

@@ -124,7 +124,7 @@ function VisualizarPedidos() {
                         updateOrderStatus(order.order_id, e.target.value)
                       }
                     >
-                      <option value="pending">Pending</option>
+                      <option value="pending" defaultValue>Pending</option>
                       <option value="processing">Processing</option>
                       <option value="shipped">Shipped</option>
                       <option value="delivered">Delivered</option>
@@ -137,7 +137,7 @@ function VisualizarPedidos() {
                         HandleDeleteOrder(order.order_id, setOrders)
                       }
                     >
-                      Delete order
+                      Delete
                     </button>
                   </td>
                 </tr>

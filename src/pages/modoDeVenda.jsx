@@ -6,15 +6,15 @@ import Cart from './Order/cart';
 
 function ModoDeVenda() {
   const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
   const [error, setError] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [produtosPorPagina] = useState(8); // Número de produtos por página
-  const [cart, setCart] = useState([]); // Estado para o carrinho de compras
+  const [produtosPorPagina] = useState(10); 
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     async function fetchProducts() {
       try {
-        // Obtendo o token armazenado no localStorage
         const token = localStorage.getItem('token');
 
         if (token) {
@@ -26,6 +26,7 @@ function ModoDeVenda() {
 
           const data = await response.json();
           setProducts(data);
+          setFilteredProducts(data); // Initialize with all products
         } else {
           console.log('Token não encontrado.');
         }
@@ -39,22 +40,14 @@ function ModoDeVenda() {
   }, []);
 
   useEffect(() => {
-    // Atualizar o número de produtos no carrinho quando o carrinho mudar
     const storedCartItems = JSON.parse(localStorage.getItem('cartItems'));
     if (storedCartItems) {
       setCart(storedCartItems);
     }
   }, []);
 
-  // Função para adicionar produto ao carrinho
   const addToCart = (product) => {
-    let storedCartItems = JSON.parse(localStorage.getItem('cartItems'));
-
-    // Verificar se storedCartItems é null e inicializá-lo como uma matriz vazia se for
-    if (!storedCartItems) {
-      storedCartItems = [];
-    }
-
+    let storedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
     const existingProductIndex = storedCartItems.findIndex(item => item.product_id === product.product_id);
 
     if (existingProductIndex !== -1) {
@@ -62,22 +55,38 @@ function ModoDeVenda() {
     } else {
       const updatedProduct = { ...product, quantity: 1 };
       const updatedCart = [...storedCartItems, updatedProduct];
-
       setCart(updatedCart);
       localStorage.setItem('cartItems', JSON.stringify(updatedCart));
     }
+
+    const msgAddCart = (message) => {
+      const messageElement = document.getElementById('productAdd-message');
+      messageElement.textContent = message;
+      messageElement.style.color = 'red';
+      messageElement.style.textAlign = 'center';
+
+      setTimeout(() => {
+        messageElement.textContent = ''; 
+      }, 2000);
+    };
+
+    msgAddCart('Produto adicionado ao carrinho');
   };
 
-  ///// Contar o número de produtos no carrinho
-  const cartItemCount = cart.length;
+  const filterProducts = (searchTerm) => {
+    const filtered = products.filter(product => 
+      product.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
-  ///// Lógica para cálculo dos produtos a serem exibidos na página atual
+    setFilteredProducts(filtered);
+    setCurrentPage(1); // Reset to first page after filtering
+  };
+
+  const cartItemCount = cart.length;
   const indexOfLastProduct = currentPage * produtosPorPagina;
   const indexOfFirstProduct = indexOfLastProduct - produtosPorPagina;
-  const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
+  const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
 
-
-  ////// Função para mudar de página
   const paginate = pageNumber => setCurrentPage(pageNumber);
 
   return (
@@ -87,7 +96,7 @@ function ModoDeVenda() {
       </div>
       <div className="content-container">
         <div id='BarraBusca'>
-          <BarraBusca filteredProducts={currentProducts} />
+          <BarraBusca filterProducts={filterProducts} />
         </div>
         {error && <p className="error-message">{error}</p>}
         <div className="product-grid">
@@ -95,17 +104,18 @@ function ModoDeVenda() {
             <div key={product.product_id} className="products-item">
               <img src={product.photo_link} alt={product.name} className="product-images" />
               <div className="products-details">
-                <h3 className="products-names">{product.name}</h3>
+                <div className='nome-produto' >
+                <h3 className="products-names" >{product.name}</h3>
+                </div>
                 <p className="products-prices">€ {product.price}</p>
               </div>
               <button id='BotaoCart' onClick={() => addToCart(product)}>Add Cart</button>
             </div>
           ))}
         </div>
-
-        {/* Paginação */}
+        <div id="productAdd-message"></div>
         <div className="MyPaginacao">
-          {Array.from({ length: Math.ceil(products.length / produtosPorPagina) }).map((_, index) => (
+          {Array.from({ length: Math.ceil(filteredProducts.length / produtosPorPagina) }).map((_, index) => (
             <div key={index}>
               <button className={currentPage === index + 1 ? 'pagina-selecionada' : 'botaoPaginacao'}
                 onClick={() => paginate(index + 1)}>
@@ -115,7 +125,6 @@ function ModoDeVenda() {
           ))}
         </div>
       </div>      
-      
     </div>
   );
 }

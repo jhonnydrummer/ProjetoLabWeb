@@ -22,6 +22,8 @@ function Cart() {
     }
   };
 
+
+
   useEffect(() => {
     const storedCartItems = localStorage.getItem("cartItems");
 
@@ -35,14 +37,15 @@ function Cart() {
     let total = 0;
 
     cartItems.forEach((item) => {
-      total += item.price * item.quantity;
+      total += item.price * item.quantity;      
     });
 
     return total;
   }
 
-  const handleCheckout = () => {
+  
 
+  const handleCheckout = () => {
     let itemIndex = cartItems.findIndex((item) => item.product_id);
     if(!itemIndex){
       navigate("/checkout");
@@ -76,7 +79,7 @@ function Cart() {
               </tr>
             </thead>
             <tbody>
-              {cartItems.map((item, index) => (
+              {cartItems.map((item, index) => (              
                 <tr key={index}>
                   <td>
                     <img src={item.image} alt={item.name} />

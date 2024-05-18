@@ -5,13 +5,11 @@ import "../style/checkout.css";
 const Checkout = () => {
   const [cart, setCart] = useState([]);
   const [paymentMethod, setPaymentMethod] = useState("");
-  const [orderStatus, setOrderStatus] = useState("pendente");
   const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Buscar os produtos do localStorage
     const storedCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
     setCart(storedCartItems);
   }, []);
@@ -34,10 +32,10 @@ const Checkout = () => {
       price: calculateTotalPrice(),
       payment_method: paymentMethod,
     };
-
+    
     try {
       const token = localStorage.getItem("token");
-
+    
       const response = await fetch(
         "https://lwlc-proj-2024.onrender.com/orders",
         {
@@ -49,19 +47,23 @@ const Checkout = () => {
           body: JSON.stringify(orderData),
         }
       );
-
+      
       if (!response.ok) {
         throw new Error("Erro ao finalizar o pedido. Tente novamente.");
       }
-
-      setOrderStatus("pending");
-      localStorage.removeItem("cartItems", []);
+      
+      localStorage.removeItem("cartItems");      
       navigate("/thankYouForBuy");
     } catch (error) {
       setErrorMessage(error.message);
     }
+
   };
 
+  
+  
+
+  /////Calcula o preço total
   const calculateTotalPrice = () => {
     return cart.reduce((total, item) => total + item.price * item.quantity, 0);
   };
@@ -69,6 +71,9 @@ const Checkout = () => {
   const handleCancelar = () => {
     navigate("/cart");
   };
+
+
+
 
   return (
     <div className="checkout-container">

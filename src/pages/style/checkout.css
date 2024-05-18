@@ -1,78 +1,90 @@
 .checkout-container {
-    width: 50vw;
-    height: 80vh;
-    margin: 5% auto;
-    padding: 20px;
-    background-color: #ccc;
-    border-radius: 5px;
-    text-align: center;
+  width: 50vw;
+  min-height: 80vh;
+  margin: 5% auto;
+  padding: 20px;
+  background-color: #ccc;
+  border-radius: 5px;
+  text-align: center;
+  overflow-y: auto; /* Adicionando scroll vertical caso a altura seja ultrapassada */
+}
+
+.cart-info {
+  margin-bottom: 20px;
+}
+
+.cart-info h3,
+.customer-info h3 {
+  margin-bottom: 10px;
+}
+
+.cart-info ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.cart-info li {
+  margin-bottom: 10px;
+}
+
+.customer-info input,
+.customer-info textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.customer-info textarea {
+  height: 80px;
+}
+
+.btnFinalizarCompra,
+.btnCancelar {
+  background-color: #ED0066;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 170px;
+  height: 40px;
+}
+
+.btnFinalizarCompra:hover {
+  background-color: #c20456;
+}
+
+.btnCancelar {
+  background-color: rgb(96, 95, 95);
+  margin: 5px;
+  margin-top: 20px; /* Removendo a margem superior fixa em favor de scroll */
+}
+
+.selectPgto {
+  width: 200px;
+  height: 40px;
+  border: none;
+}
+
+.selectPgto:focus {
+  outline: none;
+}
+
+/* Regras de mídia para tornar o layout responsivo */
+
+@media screen and (max-width: 768px) {
+  .checkout-container {
+    width: 80vw;
   }
-  
-  .cart-info {
-    margin-bottom: 20px;
-  }
-  
-  .cart-info h3,
-  .customer-info h3 {
-    margin-bottom: 10px;
-  }
-  
-  .cart-info ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .cart-info li {
-    margin-bottom: 10px;
-  }
-  
-  .customer-info input,
-  .customer-info textarea {
+
+  .btnFinalizarCompra,
+  .btnCancelar {
     width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
   }
-  
-  .customer-info textarea {
-    height: 80px;
-  }
-  
-  .btnFinalizarCompra {
-    background-color:#ED0066;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 170px;
-    height: 40px;
-    
-  }
-  
-  .btnFinalizarCompra:hover {
-    background-color: #c20456;
-  }
+}
 
-  .btnCancelar{
-    background-color: rgb(96, 95, 95);
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 170px;
-    height: 40px;
-    margin: 5px;
-    margin-top: 20vh;
+@media screen and (max-width: 480px) {
+  .checkout-container {
+    width: 90vw;
   }
-
-
-  
-  .selectPgto{
-    width: 200px;
-    height: 40px;
-    border: none;
-  }
-  .selectPgto:focus {
-    outline: none;
-  }
+}
