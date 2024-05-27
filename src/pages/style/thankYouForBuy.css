@@ -3,10 +3,11 @@
     height: 80vh;
     margin: 5% auto;
     padding: 20px;
-    background-color: #ccc;
+    background-color: #0F1642;
     border-radius: 5px;
     text-align: center;
     display: block;
+    color: white;
   }
   
   
@@ -28,8 +29,12 @@
   }
 
   .container-text-button{
-    margin-top: 30%;
+    margin-top: 5%;
   }
-
+  
+  #myLogo{
+    width: 40%;
+    padding: 40px;
+  }
  
 

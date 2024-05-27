@@ -71,9 +71,8 @@ function Cart() {
           <table>
             <thead>
               <tr>
-                <th>Imagem</th>
                 <th>Produto</th>
-                <th>Preço</th>
+                <th>Preço €</th>
                 <th>Quantidade</th>
                 <th>Ação</th>
               </tr>
@@ -81,11 +80,8 @@ function Cart() {
             <tbody>
               {cartItems.map((item, index) => (              
                 <tr key={index}>
-                  <td>
-                    <img src={item.image} alt={item.name} />
-                  </td>
                   <td>{item.name}</td>
-                  <td>{item.price}</td>
+                  <td>€{item.price}</td>
                   <td>
                     <button
                       className="quantity-button"

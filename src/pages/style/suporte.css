@@ -20,6 +20,9 @@
   .faq-title {
     font-size: 24px;
     margin-bottom: 20px;
+    background-color: #0F1642;
+    color: white;
+    padding: 10px;
   }
   
   /* Estilo para cada item de pergunta e resposta */

@@ -12,7 +12,6 @@ const GerenciarProdutos = () => {
           <SideBar/>
         </div>
         <div className="main-content">
-          <BarraBusca/>
           <div className='container'>
             <ExibirProdutos/>
           </div>
@@ -20,7 +19,6 @@ const GerenciarProdutos = () => {
           <div id='listraFooter'></div>
           <footer className='rodape'>
             <Link to="/addProduto"><button id="openModalBtn">Add Produto</button></Link>
-            <button>Gestão de vendas</button>
           </footer>
         </div>
     </div>

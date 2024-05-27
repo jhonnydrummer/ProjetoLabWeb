@@ -44,7 +44,6 @@ const PaginaEditarProduto = () => {
 
     const handleSalvarEdicaoProduto = async () => {
         try {
-            // Validação de entrada
             if (!nome || !preco || !produtoImagem) {
                 throw new Error('Por favor, preencha todos os campos');
             }

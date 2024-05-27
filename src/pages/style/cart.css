@@ -41,6 +41,13 @@
 .cart-items td {
   padding: 8px;
   text-align: left;
+  width: 60px;
+  min-width: 60px;
+  text-align: center;
+}
+
+.cart-items td{
+  border: 1px solid rgb(165, 165, 165);
 }
 
 .inputQuantity {

@@ -3,17 +3,17 @@ import BotaoPesquisar from '../img/icons/botaoSearch.png';
 import '../pages/style/BarraBusca.css';
 
 const BarraBusca = ({ filterProducts }) => {
-    const [searchTerm, setSearchTerm] = useState('');
+    const [myPesquisa, setMyPesquisa] = useState('');
 
     // Manipulador de mudanças no input
     const handleInputChange = (event) => {
-        setSearchTerm(event.target.value);
+        setMyPesquisa(event.target.value);
     };
 
     // Evento de submissão do formulário
     const handleSubmit = (event) => {
         event.preventDefault();
-        filterProducts(searchTerm);
+        filterProducts(myPesquisa);
     };
 
     return (
@@ -24,7 +24,7 @@ const BarraBusca = ({ filterProducts }) => {
                     <input
                         className='nome-do-produto'
                         placeholder='Digite o que deseja buscar'
-                        value={searchTerm}
+                        value={myPesquisa}
                         onChange={handleInputChange}
                     />
                     <button type="submit" className='botaoSearch'>

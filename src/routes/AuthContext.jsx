@@ -42,24 +42,24 @@ export const AuthProvider = ({ children }) => {
   const recuperarUsuario = async (username, password) => {
     try {
       const token = localStorage.getItem('token');
-  
+
       if (token) {
         const response = await fetch('https://lwlc-proj-2024.onrender.com/users', {
           headers: {
             'Authorization': token,
           }
         });
-  
+
         if (response.ok) {
           const users = await response.json();
           const authenticatedUser = users.find(user => user.username === username && user.password === password);
-  
+
           if (authenticatedUser) {
             setUser(authenticatedUser);
+            setIsAdmin(authenticatedUser.is_admin); 
 
-          // Configurar isAdmin no localStorage independentemente do status do usuário
-          localStorage.setItem('user', authenticatedUser.username); 
-          localStorage.setItem('isAdmin', authenticatedUser.is_admin);
+            localStorage.setItem('user', authenticatedUser.username); 
+            localStorage.setItem('isAdmin', authenticatedUser.is_admin);
           }
         } else {
           console.log('Erro ao recuperar dados do usuário:', response.statusText);
@@ -71,7 +71,6 @@ export const AuthProvider = ({ children }) => {
       console.error('Erro ao buscar utilizador:', error);
     }
   };
-  
 
   const logout = () => {
     setUser(null);

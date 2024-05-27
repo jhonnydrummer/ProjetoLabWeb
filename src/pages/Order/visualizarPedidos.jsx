@@ -94,6 +94,7 @@ function VisualizarPedidos() {
     <div className="container">
       <SideBar />
       <div className="orders-content">
+        
         {error && <p className="error-message">{error}</p>}
         <div className="container-orders-b">
           <table className="orders-table">

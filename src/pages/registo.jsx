@@ -37,7 +37,7 @@ const Signup = () => {
     if (password !== passwordConfirme) {
       setError("As senhas não são iguais");
       return;
-    }/*
+    }
     if (
       password.length < 8 ||
       !/[A-Z]/.test(password) ||
@@ -48,7 +48,8 @@ const Signup = () => {
         "A senha deve conter pelo menor 8 caracteres, 1 letra maiúscula, 1 caractere especial e um número"
       );
       return;
-    }*/
+    }
+    
     try {
       const response = await fetch("https://lwlc-proj-2024.onrender.com/users", {
         method: "POST",

@@ -6,6 +6,7 @@
     display: flexbox;
     width: 15vw;
     height: 100vh;
+    min-width: 15vw;
     background-image: url("/src/img/background.svg");
     padding: 10px;
     
@@ -79,7 +80,7 @@
  }
 
  #perfil p{
-  color: #ED0066;
+  color: white;
   font-weight: normal;
   font-size:smaller;
   text-align: center;
@@ -103,6 +104,13 @@
   color: white;
  }
 
- 
+.sidebar .components li.selected a,
+.sidebar .components li.selected a:hover {
+  color: #ED0066;
+}
+
+.sidebar .components li.selected a img {
+  filter: invert(40%) sepia(82%) saturate(4826%) hue-rotate(325deg) brightness(97%) contrast(101%);
+}
 
   
